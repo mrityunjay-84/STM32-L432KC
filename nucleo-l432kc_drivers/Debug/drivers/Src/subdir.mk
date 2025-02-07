@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../drivers/Src/nucleo-l432kc_gpio_driver.c 
+../drivers/Src/nucleo-l432kc_gpio_driver.c \
+../drivers/Src/nucleo-l432kc_spi_driver.c 
 
 OBJS += \
-./drivers/Src/nucleo-l432kc_gpio_driver.o 
+./drivers/Src/nucleo-l432kc_gpio_driver.o \
+./drivers/Src/nucleo-l432kc_spi_driver.o 
 
 C_DEPS += \
-./drivers/Src/nucleo-l432kc_gpio_driver.d 
+./drivers/Src/nucleo-l432kc_gpio_driver.d \
+./drivers/Src/nucleo-l432kc_spi_driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ drivers/Src/%.o drivers/Src/%.su drivers/Src/%.cyclo: ../drivers/Src/%.c drivers
 clean: clean-drivers-2f-Src
 
 clean-drivers-2f-Src:
-	-$(RM) ./drivers/Src/nucleo-l432kc_gpio_driver.cyclo ./drivers/Src/nucleo-l432kc_gpio_driver.d ./drivers/Src/nucleo-l432kc_gpio_driver.o ./drivers/Src/nucleo-l432kc_gpio_driver.su
+	-$(RM) ./drivers/Src/nucleo-l432kc_gpio_driver.cyclo ./drivers/Src/nucleo-l432kc_gpio_driver.d ./drivers/Src/nucleo-l432kc_gpio_driver.o ./drivers/Src/nucleo-l432kc_gpio_driver.su ./drivers/Src/nucleo-l432kc_spi_driver.cyclo ./drivers/Src/nucleo-l432kc_spi_driver.d ./drivers/Src/nucleo-l432kc_spi_driver.o ./drivers/Src/nucleo-l432kc_spi_driver.su
 
 .PHONY: clean-drivers-2f-Src
 

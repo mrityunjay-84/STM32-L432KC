@@ -1,0 +1,741 @@
+19:49:41 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/nucleo-l432kc_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/nucleo-l432kc_spi_driver.d" -MT"drivers/Src/nucleo-l432kc_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/nucleo-l432kc_spi_driver.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2712	      0	   1568	   4280	   10b8	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+19:49:48 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2712	      0	   1568	   4280	   10b8	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+19:50:20 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2712	      0	   1568	   4280	   10b8	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+19:52:51 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/nucleo-l432kc_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/nucleo-l432kc_spi_driver.d" -MT"drivers/Src/nucleo-l432kc_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/nucleo-l432kc_spi_driver.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2712	      0	   1568	   4280	   10b8	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+19:54:58 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:134:17: warning: unused variable 'SlaveSend' [-Wunused-variable]
+  134 |         uint8_t SlaveSend = 0x53;       // S
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:132:17: warning: unused variable 'dummyRead' [-Wunused-variable]
+  132 |         uint8_t dummyRead;
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0xff;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2556	      0	   1568	   4124	   101c	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+19:57:16 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:134:17: warning: unused variable 'SlaveSend' [-Wunused-variable]
+  134 |         uint8_t SlaveSend = 0x53;       // S
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:132:17: warning: unused variable 'dummyRead' [-Wunused-variable]
+  132 |         uint8_t dummyRead;
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2556	      0	   1568	   4124	   101c	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+19:57:37 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2556	      0	   1568	   4124	   101c	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+19:58:41 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:132:17: warning: unused variable 'dummyRead' [-Wunused-variable]
+  132 |         uint8_t dummyRead;
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2568	      0	   1568	   4136	   1028	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:00:19 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'MasterSend' [-Wunused-variable]
+  133 |         uint8_t MasterSend = 0x4d;      // M
+      |                 ^~~~~~~~~~
+../Src/007spi_master_slave.c:132:17: warning: unused variable 'dummyRead' [-Wunused-variable]
+  132 |         uint8_t dummyRead;
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2556	      0	   1568	   4124	   101c	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:02:27 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'MasterSend' [-Wunused-variable]
+  133 |         uint8_t MasterSend = 0x4d;      // M
+      |                 ^~~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2688	      0	   1568	   4256	   10a0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:06:05 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:134:17: warning: unused variable 'SlaveSend' [-Wunused-variable]
+  134 |         uint8_t SlaveSend = 0x53;       // S
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2712	      0	   1568	   4280	   10b8	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:11:45 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:14:59 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'SPI_GPIOConfig':
+../Src/007spi_master_slave.c:33:23: warning: unused variable 'SPI1Pins' [-Wunused-variable]
+   33 |         GPIO_Handle_t SPI1Pins;
+      |                       ^~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2596	      0	   1568	   4164	   1044	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:15:49 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'SPI_GPIOConfig':
+../Src/007spi_master_slave.c:33:23: warning: unused variable 'SPI1Pins' [-Wunused-variable]
+   33 |         GPIO_Handle_t SPI1Pins;
+      |                       ^~~~~~~~
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'MasterSend' [-Wunused-variable]
+  133 |         uint8_t MasterSend = 0x4d;      // M
+      |                 ^~~~~~~~~~
+../Src/007spi_master_slave.c:132:17: warning: unused variable 'dummyRead' [-Wunused-variable]
+  132 |         uint8_t dummyRead;
+      |                 ^~~~~~~~~
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2404	      0	   1568	   3972	    f84	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:27:27 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:165:37: error: 'SlaveSend' undeclared (first use in this function)
+  165 |                 SPI_SendData(SPI3, &SlaveSend, 1);
+      |                                     ^~~~~~~~~
+../Src/007spi_master_slave.c:165:37: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:25: Src/007spi_master_slave.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:27:36 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:165:37: error: 'SlaveSend' undeclared (first use in this function)
+  165 |                 SPI_SendData(SPI3, &SlaveSend, 1);
+      |                                     ^~~~~~~~~
+../Src/007spi_master_slave.c:165:37: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:25: Src/007spi_master_slave.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+20:27:54 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2388	      0	   1568	   3956	    f74	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:37:22 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2388	      0	   1568	   3956	    f74	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:44:53 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:47:22 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:48:46 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:49:02 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+20:50:48 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0x11;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:51:01 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+20:51:27 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+20:52:08 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/nucleo-l432kc_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/nucleo-l432kc_spi_driver.d" -MT"drivers/Src/nucleo-l432kc_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/nucleo-l432kc_spi_driver.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+20:53:40 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/nucleo-l432kc_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"drivers/Src/nucleo-l432kc_spi_driver.d" -MT"drivers/Src/nucleo-l432kc_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/nucleo-l432kc_spi_driver.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:05:15 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2724	      0	   1568	   4292	   10c4	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:11:19 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:12:40 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2736	      0	   1568	   4304	   10d0	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:24:11 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2808	      0	   1568	   4376	   1118	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:25:54 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:131:17: warning: unused variable 'dummyWrite' [-Wunused-variable]
+  131 |         uint8_t dummyWrite = 0xFF;
+      |                 ^~~~~~~~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2808	      0	   1568	   4376	   1118	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:27:06 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2808	      0	   1568	   4376	   1118	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:31:40 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2808	      0	   1568	   4376	   1118	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:32:16 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2808	      0	   1568	   4376	   1118	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:33:50 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2852	      0	   1568	   4420	   1144	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:35:37 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2816	      0	   1568	   4384	   1120	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:36:45 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2840	      0	   1568	   4408	   1138	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:46:45 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2852	      0	   1568	   4420	   1144	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+21:52:46 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2816	      0	   1568	   4384	   1120	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+22:06:32 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2800	      0	   1568	   4368	   1110	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+22:08:00 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2800	      0	   1568	   4368	   1110	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+22:12:04 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2800	      0	   1568	   4368	   1110	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+22:12:58 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2800	      0	   1568	   4368	   1110	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+22:14:27 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2800	      0	   1568	   4368	   1110	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+22:15:15 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2800	      0	   1568	   4368	   1110	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+22:16:17 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2852	      0	   1568	   4420	   1144	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 
+22:19:00 **** Incremental Build of configuration Debug for project nucleo-l432kc_drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/007spi_master_slave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_L432KC -DSTM32L4 -DSTM32 -DSTM32L432KCUx -c -I../Inc -I"D:/Documents/Electronics/STM32 Workspace/nucleo-l432kc_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/007spi_master_slave.d" -MT"Src/007spi_master_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/007spi_master_slave.o"
+../Src/007spi_master_slave.c: In function 'main':
+../Src/007spi_master_slave.c:133:17: warning: unused variable 'read' [-Wunused-variable]
+  133 |         uint8_t read;
+      |                 ^~~~
+arm-none-eabi-gcc -o "nucleo-l432kc_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Documents\Electronics\STM32 Workspace\nucleo-l432kc_drivers\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-l432kc_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo-l432kc_drivers.elf
+ 
+arm-none-eabi-size  nucleo-l432kc_drivers.elf 
+arm-none-eabi-objdump -h -S nucleo-l432kc_drivers.elf  > "nucleo-l432kc_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   2852	      0	   1568	   4420	   1144	nucleo-l432kc_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo-l432kc_drivers.list
+ 

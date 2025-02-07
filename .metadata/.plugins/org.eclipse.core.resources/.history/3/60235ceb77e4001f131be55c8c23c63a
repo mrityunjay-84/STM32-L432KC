@@ -1,0 +1,200 @@
+/*
+ * nucleo-l432kc_spi_driver.h
+ *
+ *  Created on: Feb 5, 2025
+ *      Author: mrityunjay
+ */
+
+#include "nucleo-l432kc_spi_driver.h"
+
+/**********************************************************************/
+/*                              SPI APIS                              */
+/**********************************************************************/
+
+/* SPI Peripheral Clock Setup */
+
+/************************************************************
+ * @function 	- SPI_PeriClockControl
+ * @brief		- this function enables or disables the clock to a SPI peripheral
+ *
+ * @param[in] 	- pointer to base address of SPI peripheral type-casted to SPI_RegDef_t
+ * @param[in] 	- ENABLE or DISABLE macro
+ * return 		- none
+ *
+ * note 		- none
+ */
+void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDis){
+	if (EnorDis == ENABLE){
+		if (pSPIx == SPI1){
+			SPI1_PCLK_EN();
+		}
+		else if (pSPIx == SPI3){
+			SPI3_PCLK_EN();
+		}
+	}
+	else{
+		if (pSPIx == SPI1){
+			SPI1_PCLK_DI();
+		}
+		else if (pSPIx == SPI3){
+			SPI3_PCLK_DI();
+		}
+	}
+}
+
+/* Initialization and DeInitialization */
+
+/************************************************************
+ * @function 	- SPI_Init
+ * @brief 		- this function initializes the SPI pin configuration settings
+ *
+ * @param[in] 	- SPI Handler
+ * return 		- none
+ *
+ * note 		- refer @SPI_RegDef_t in "nucleo-l432kc_SPI_driver.h"
+ */
+void SPI_Init(SPI_Handle_t *pSPI_Handle){
+	// configure SPIx_CR1 register && SPIx_CR2 register
+
+	uint32_t tempReg1 = 0;
+	uint32_t tempReg2 = 0;
+
+	// 1. configure device mode
+	tempReg1 |= (pSPI_Handle->SPI_PinConfig.SPI_DeviceMode << 2);
+
+	// 2. configure bus configuration
+	if (pSPI_Handle->SPI_PinConfig.SPI_BusConfig == SPI_BUS_CONFIG_FULL_DUPLX || pSPI_Handle->SPI_PinConfig.SPI_BusConfig == SPI_BUS_CONFIG_SMPLX_TX){
+		// clear BIDIMODE bit
+		tempReg1 &= ~(0b1 << 14);
+	}
+	else if (pSPI_Handle->SPI_PinConfig.SPI_BusConfig == SPI_BUS_CONFIG_HALF_DUPLX){
+		// set BIDIMODE bit
+		tempReg1 |= (0b1 << 14);
+	}
+	else if (pSPI_Handle->SPI_PinConfig.SPI_BusConfig == SPI_BUS_CONFIG_SMPLX_RX){
+		// clear BIDIMODE bit
+		// set RXONLY bit
+		tempReg1 &= ~(0b1 << 14);
+		tempReg1 |= (0b1 << 10);
+	}
+
+	// 3. configure data size
+	tempReg2 &= ~(0b1111 << 8);
+	tempReg2 |= (pSPI_Handle->SPI_PinConfig.SPI_DS << 8);
+
+	// 4. configure clock phase
+	tempReg1 |= (pSPI_Handle->SPI_PinConfig.SPI_CPHA << 0);
+
+	// 5. configure clock polarity
+	tempReg1 |= (pSPI_Handle->SPI_PinConfig.SPI_CPOL << 1);
+
+	// 6. configure software slave management
+	tempReg1 |= (pSPI_Handle->SPI_PinConfig.SPI_SSM << 9);
+
+	// 7. configure baudrate control
+	tempReg1 |= (pSPI_Handle->SPI_PinConfig.SPI_BDRCtrl << 3);
+
+	pSPI_Handle->pSPIx->SPIx_CR1 |= tempReg1;
+	pSPI_Handle->pSPIx->SPIx_CR2 |= tempReg2;
+}
+
+/************************************************************
+ * @function 	- SPI_DeInit
+ * @brief 		- this function resets SPIx peripheral
+ *
+ * @param[in] 	- pointer to base address of SPI peripheral type-casted to SPI_RegDef_t
+ * @return 		- none
+ *
+ * @note 		- none
+ */
+void SPI_DeInit(SPI_RegDef_t *pSPIx){
+	if (pSPIx == SPI1){
+		SPI1_PERI_RESET();
+	}
+	else if (pSPIx == SPI3){
+		SPI3_PERI_RESET();
+	}
+}
+
+/* Data Read and Write */
+
+/************************************************************
+ * @function 	- SPI_SendData()
+ * @brief 		- this function sends data out via SPI
+ *
+ * @param[in] 	- pointer to SPI peripheral base address type casted to SPI_RegDef_t
+ * @param[in] 	- pointer to data to be transmitted
+ * @param[in] 	- length of data to be transmitted (HAS TO BE IN uint32_t)
+ * @return 		- none
+ *
+ * @note 		- this is a blocking method
+ */
+void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t length){
+	// first check whether the data to be transmitted is still pending
+	while (length > 0){
+		// now check if TXE bit is set
+		while(!(pSPIx->SPIx_SR & (0b1 << 1)) ;
+
+		// check the DF bit (I have implemented it only for 8 and 16 bit frame format)
+		if (pSPIx->SPIx_CR2 & (0b111 << 8)){
+			// 8 bit frame format
+			pSPIx->SPIx_DR = *pTxBuffer;
+			length = length - 1;
+			pTxBuffer++;
+		}
+		else if (pSPIx->SPIx_CR2 & (0b1111) << 8){
+			// 16 bit frame format
+			pSPIx->SPIx_DR = *pTxBuffer;
+			length = length - 2;
+			(uint16_t *)pTxBuffer++;
+		}
+	}
+}
+//void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint8_t length);
+//
+///* IRQ Configuration and IRS Handling */
+//
+//void SPI_IRQInterruptConfig(uint8_t IRQNumber, bool EnorDi);
+//void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority);
+//void SPI_IRQHandling(SPI_Handle_t *pSPI_Handle);
+
+/* Additional APIs */
+
+/************************************************************
+ * @function 	- SPI_PeriConfig()
+ * @brief 		- this function enables the SPI peripheral
+ *
+ * @param[in] 	- pointer to SPI peripheral base address type casted to SPI_RegDef_t
+ * @param[in] 	- ENABLE or DISABLE macro
+ * @return 		- none
+ *
+ * @note 		- SPE bit (SPI Enable bit)
+ */
+void SPI_PeriConfig(SPI_RegDef_t *pSPIx, uint8_t EnorDi){
+	if (EnorDi == ENABLE){
+		pSPIx->SPIx_CR1 |= (0b1 << 6);
+	}
+	else{
+		pSPIx->SPIx_CR1 &= ~(0b1 << 6);
+	}
+}
+
+/************************************************************
+ * @function 	- SPI_SSIConfig()
+ * @brief 		- this function SETs SSI bit (condition -> SSM is ENABLED)
+ *
+ * @param[in] 	- pointer to SPI peripheral base address type casted to SPI_RegDef_t
+ * @param[in] 	- ENABLE or DISABLE macro
+ * @return 		- none
+ *
+ * @note 		- SSI bit (Internal slave select bit)
+ */
+void SPI_SSIConfig(SPI_RegDef_t *pSPIx, uint8_t EnorDi){
+	if (EnorDi == ENABLE){
+		pSPIx->SPIx_CR1 |= (0b1 << 8);
+	}
+	else{
+		pSPIx->SPIx_CR1 &= ~(0b1 << 8);
+
+	}
+}

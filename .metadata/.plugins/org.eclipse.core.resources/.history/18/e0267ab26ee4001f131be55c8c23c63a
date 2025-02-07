@@ -1,0 +1,21 @@
+/*
+ * 005spi_blocking_tx.c
+ *
+ *  Created on: Feb 6, 2025
+ *      Author: mrityunjay
+ */
+
+#include "nucleo-l432kc.h"
+
+/* SPI1_NSS		PA5		9
+ * SPI1_MOSI	PA7		6
+ * SPI1_MISO	PA6		7
+ * API1_SCLK	PA5		8
+ * alternate functionality mode 	5
+ */
+
+void main(void)
+{
+
+}
+

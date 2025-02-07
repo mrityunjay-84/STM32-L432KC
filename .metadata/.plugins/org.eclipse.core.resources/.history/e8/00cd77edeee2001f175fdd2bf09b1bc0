@@ -1,0 +1,55 @@
+/*
+ * 003led_toggle.c
+ * AIM -> LED toggle as per external input
+ *
+ *  Created on: Jan 27, 2025
+ *      Author: mrityunjay
+ */
+
+#include "nucleo-l432kc.h"
+
+/* software delay */
+void delay(void){
+	for (uint32_t i = 0; i < 0x000000FF; i++);
+}
+
+int main(void){
+	// user led is at PB3 (D13)
+	// configuring the GPIO registers for Port B Pin 3
+
+	GPIO_Handle_t gpio_led;
+
+	gpio_led.pGPIOx = GPIOB;
+	gpio_led.GPIO_PinConfig.GPIO_PinNumber = GPIO_NO_3;
+	gpio_led.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
+	gpio_led.GPIO_PinConfig.GPIO_PinOpSpeed = GPIO_OPSPEED_LOW;
+	gpio_led.GPIO_PinConfig.GPIO_PinOpType = GPIO_OPTYPE_PUSHPULL;
+	gpio_led.GPIO_PinConfig.GPIO_PinPUPD = GPIO_PUPD_NOPUPD;
+
+
+	GPIO_PeriClockControl(GPIOB, ENABLE);
+	GPIO_Init(&gpio_led);
+
+	// external button at PB4
+	// configuring the GPIO registers for Port B Pin 4
+
+	GPIO_Handle_t gpio_uno;
+
+	gpio_uno.pGPIOx = GPIOB;
+	gpio_uno.GPIO_PinConfig.GPIO_PinNumber = GPIO_NO_4;
+	gpio_uno.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	gpio_uno.GPIO_PinConfig.GPIO_PinPUPD = GPIO_PUPD_PU;
+
+	// GPIO_PeriClockControl(GPIOB, ENABLE);
+	// no need here because clock to GPIOB peripheral has already been enabled
+	GPIO_Init(&gpio_uno);
+
+	while(1){
+		if (GPIO_ReadFromInputPin(GPIOB, GPIO_NO_4) == SET){
+			delay();
+			GPIO_ToggleOutputPin(GPIOB, GPIO_NO_3);
+		}
+	}
+
+	return 1;
+}

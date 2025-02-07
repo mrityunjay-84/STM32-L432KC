@@ -1,0 +1,376 @@
+/*
+ * nucleo-l432kc.h
+ *
+ *  Created on: Jan 26, 2025
+ *      Author: mrityunjay
+ */
+
+#ifndef INC_NUCLEO_L432KC_H_
+#define INC_NUCLEO_L432KC_H_
+
+#include <stdint.h>
+#include <stdbool.h>
+
+/****************************************************************************/
+/*                              GENERIC MACROS                              */
+/****************************************************************************/
+
+#define ENABLE				1				/*!< enable  */
+#define DISABLE				0				/*!< disable */
+#define SET					1				/*!< set */
+#define RESET				0				/*!< reset */
+#define GPIO_PIN_SET		1				/*!< GPIO pin set */
+#define GPIO_PIN_RESET		0				/*!< GPIO pin reset */
+#define __vo				volatile		/*!< replace volatile keyword with __vo */
+
+/**************************************************************************/
+/*                              IRQ POSITION                              */
+/**************************************************************************/
+// SOURCE - > REFERNCE MANUAL (vector table)
+
+#define IRQ_NO_WWDG 				0 		/*!< Window Watchdog interrupt 														0x00000040 */
+#define IRQ_NO_PVD_PVM 				1 		/*!< PVD/PVM1/PVM2(1)/PVM3/PVM4 through EXTI lines 16/35/36/37/38 interrupts		0x00000044 */
+#define IRQ_NO_RTC_TAMP_STAMP		2 		/*!< RTC Tamper or TimeStamp  through EXTI line 19 interrupts 						0x00000048 */
+#define IRQ_NO_CSS_LSE				2 		/*!< CSS on LSE through EXTI line 19 interrupts 									0x00000048 */
+#define IRQ_NO_RTC_WKUP				3  		/*!< RTC Wakeup timer through EXTI line 20 interrupt 								0x0000004C */
+#define IRQ_NO_FLASH 				4  		/*!< Flash global interrupt															0x00000050 */
+#define IRQ_NO_RCC 					5 		/*!< RCC global interrupt 															0x00000054 */
+#define IRQ_NO_EXTI0 				6 		/*!< EXTI Line0 interrupt															0x00000058 */
+#define IRQ_NO_EXTI1 				7 		/*!< EXTI Line1 interrupt 															0x0000005C */
+#define IRQ_NO_EXTI2 				8 		/*!< EXTI Line2 interrupt 															0x00000060 */
+#define IRQ_NO_EXTI3 				9 		/*!< EXTI Line3 interrupt 															0x00000064 */
+#define IRQ_NO_EXTI4 				10 		/*!< EXTI Line4 interrupt 															0x00000068 */
+#define IRQ_NO_DMA1_CH1 			11 		/*!< DMA1 channel 1 interrupt 														0x0000006C */
+#define IRQ_NO_DMA1_CH2 			12 		/*!< DMA1 channel 2 interrupt 														0x00000070 */
+#define IRQ_NO_DMA1_CH3 			13 		/*!< DMA1 channel 3 interrupt 														0x00000074 */
+#define IRQ_NO_DMA1_CH4 			14 		/*!< DMA1 channel 4 interrupt 														0x00000078 */
+#define IRQ_NO_DMA1_CH5 			15 		/*!< DMA1 channel 5 interrupt 														0x0000007C */
+#define IRQ_NO_DMA1_CH6 			16 		/*!< DMA1 channel 6 interrupt 														0x00000080 */
+#define IRQ_NO_DMA1_CH7 			17 		/*!< DMA1 channel 7 interrupt 														0x00000084 */
+#define IRQ_NO_ADC1_2 				18 		/*!< ADC1 global interrupt 															0x00000088 */
+#define IRQ_NO_CAN1_TX 				19 		/*!< CAN1_TX interrupts 															0x0000008C */
+#define IRQ_NO_CAN1_RX0 			20 		/*!< CAN1_RX0 interrupts 															0x00000090 */
+#define IRQ_NO_CAN1_RX1 			21 		/*!< CAN1_RX1 interrupt 															0x00000094 */
+#define IRQ_NO_CAN1_SCE 			22 		/*!< CAN1_SCE interrupt 															0x00000098 */
+#define IRQ_NO_EXTI9_5 				23 		/*!< EXTI Line[9:5] interrupts														0x0000009C */
+#define IRQ_NO_TIM1_BRK  			24 		/*!< TIM1 Break global interrupts 													0x000000A0 */
+#define IRQ_NO_TIM15  				24 		/*!< TIM15 global interrupts 														0x000000A0 */
+#define IRQ_NO_TIM1_UP 				25 		/*!< TIM1 Update global interrupts													0x000000A4 */
+#define TIM16 						25 		/*!< TIM16 global interrupts														0x000000A4 */
+#define IRQ_NO_TIM1_TRG_COM 		26 		/*!< TIM1 trigger and commutation interrupt											0x000000A8 */
+#define IRQ_NO_TIM1_CC 				27  	/*!< TIM1 capture compare interrupt													0x000000AC */
+#define IRQ_NO_TIM 					28  	/*!< 2TIM2 global interrupt															0x000000B0 */
+#define IRQ_NO_I2C1_EV 				31  	/*!< I2C1 event interrupt 															0x000000BC */
+#define IRQ_NO_I2C1_ER 				32  	/*!< I2C1 error interrupT															0x000000C0 */
+#define IRQ_NO_SPI1 				35  	/*!< SPI1 global interrupt															0x000000CC */
+#define IRQ_NO_USART1 				37  	/*!< USART1 global interrupt														0x000000D4 */
+#define IRQ_NO_USART2 				38  	/*!< USART2 global interrupt														0x000000D8 */
+#define IRQ_NO_EXTI15_10 			40  	/*!< EXTI Line[15:10] interrupts													0x000000E0 */
+#define IRQ_NO_RTC_ALARM 			41  	/*!< RTC alarms through EXTI line 18 interrupts										0x000000E4 */
+#define IRQ_NO_SPI3 				51  	/*!< SPI3 global interrupt															0x0000010C */
+#define IRQ_NO_TIM6_DACUNDER 		54  	/*!< TIM6 global and DAC1 underrun interrupts										0x00000118 */
+#define IRQ_NO_TIM7 				55  	/*!< TIM7 global interrupt															0x0000011C */
+#define IRQ_NO_DMA2_CH1 			56  	/*!< DMA2 channel 1 interrupt														0x00000120 */
+#define IRQ_NO_DMA2_CH2 			57  	/*!< DMA2 channel 2 interrupt														0x00000124 */
+#define IRQ_NO_DMA2_CH3 			58  	/*!< DMA2 channel 3 interrupt														0x00000128 */
+#define IRQ_NO_DMA2_CH4 			59  	/*!< DMA2 channel 4 interrupt														0x0000012C */
+#define IRQ_NO_DMA2_CH5 			60  	/*!< DMA2 channel 5 interrupt														0x00000130 */
+#define IRQ_NO_COMP 				64  	/*!< COMP1/COMP2 through EXTI lines 21/22 interrupts 								0x00000140 */
+#define IRQ_NO_LPTIM1 				65  	/*!< LPTIM1 global interrupt														0x00000144 */
+#define IRQ_NO_LPTIM2				66  	/*!< LPTIM2 global interrupt														0x00000148 */
+#define IRQ_NO_USB_FS 				67  	/*!< USB event interrupt through EXTI line 17										0x0000014C */
+#define IRQ_NO_DMA2_CH6 			68  	/*!< DMA2 channel 6 interrupt														0x00000150 */
+#define IRQ_NO_DMA2_CH7 			69  	/*!< DMA2 channel 7 interrupt														0x00000154 */
+#define IRQ_NO_LPUART1 				70  	/*!< LPUART1 global interrupT														0x00000158 */
+#define IRQ_NO_QUADSPI 				71  	/*!< QUADSPI global interrupt														0x0000015C */
+#define IRQ_NO_I2C3_EV 				72  	/*!< I2C3 event interrupt 															0x00000160 */
+#define IRQ_NO_I2C3_ER 				73  	/*!< I2C3 error interrupt															0x00000164 */
+#define IRQ_NO_SAI1 				74  	/*!< SAI1 global interrupt															0x00000168 */
+#define IRQ_NO_SWPMI1 				76  	/*!< SWPMI1 global interrupt														0x00000170 */
+#define IRQ_NO_TSC 					77  	/*!< TSC global interrupt															0x00000174 */
+#define IRQ_NO_RNG 					80  	/*!< RNG global interrupt															0x00000180 */
+#define IRQ_NO_FPU 					81 		/*!< Floating point interrupt														0x00000184 */
+#define IRQ_NO_CRS 					82 		/*!< CRS interrupt																	0x00000188 */
+
+/*********************************************************************************/
+/*                              BASE ADDRESS MACROS                              */
+/*********************************************************************************/
+// SOURCE -> DATA SHEET (Embedded Flash Memory, Embedded SRAM, MEMORY MAP)
+
+/* base address of FLASH, SRAM1, SRAM2 memories */
+
+#define FLASH_BASEADDR			0x08000000U		/*!< Flash base address;	size of 256 KB */
+#define SRAM1_BASEADDR			0x20000000U		/*!< SRAM1 base address;	size of 48 KB */
+#define SRAM2_BASEADDR			0x2000C000U		/*!< SRAM2 base address;	size of 16 KB */
+#define SRAM2_BASEADDR			0x10000000U		/*!< SRAM2 base address;	size of 16 KB */
+
+/* base address of AHBx and APBx bus peripherals */
+
+#define APB1_BASEADDR			0x40000000U		/*!< APB1 peripherals base address */
+#define APB2_BASEADDR			0x40010000U		/*!< APB2 peripherals base address */
+#define AHB1_BASEADDR			0x40020000U		/*!< AHB1 peripherals base address */
+#define AHB2_BASEADDR			0x48000000U		/*!< AHB2 peripherals base address */
+
+/* base address of peripherals connected to APB1 bus */
+
+#define TIM2_BASEADDR			0x40000000U		/*!< TIM2 peripheral base address */
+#define TIM6_BASEADDR			0x40001000U		/*!< TIM6 peripheral base address */
+#define TIM7_BASEADDR			0x40001400U		/*!< TIM6 peripheral base address */
+#define RTC_BASEADDR			0x40002800U		/*!< RTC peripheral base address */
+#define WWDGC_BASEADDR			0x40002C00U		/*!< WWDGC peripheral base address */
+#define IWDG_BASEADDR			0x40003000U		/*!< IWDG peripheral base address */
+#define SPI3_BASEADDR			0x40003C00U		/*!< SPI3 peripheral base address */
+#define USART2_BASEADDR			0x40004400U		/*!< USART2 peripheral base address */
+#define I2C1_BASEADDR			0x40005400U		/*!< I2C1 peripheral base address */
+#define I2C3_BASEADDR			0x40005C00U		/*!< I2C3 peripheral base address */
+#define CRS_BASEADDR			0x40006000U		/*!< CRS peripheral base address */
+#define CAN1_BASEADDR			0x40006400U		/*!< CAN1 peripheral base address */
+#define USBFS_BASEADDR			0x40006800U		/*!< USBFS peripheral base address */
+#define USBSRAM_BASEADDR		0x40006C00U		/*!< USBSRAM peripheral base address */
+#define PWR_BASEADDR			0x40007000U		/*!< PWR peripheral base address */
+#define DAC1_BASEADDR			0x40007400U		/*!< DAC1 peripheral base address */
+#define OPAMP_BASEADDR			0x40007800U		/*!< OPAMP peripheral base address */
+#define LPTIM1_BASEADDR			0x40007C00U		/*!< LPTIM1 peripheral base address */
+#define LPUART1_BASEADDR 		0x40008000U		/*!< LPUART1 peripheral base address */
+#define SWPMI1_BASEADDR			0x40008800U		/*!< SWPMI1 peripheral base address */
+#define LPTIM2_BASEADDR			0x40009400U		/*!< LPTIM2 peripheral base address */
+
+/* base address of peripheral connected to APB2 bus */
+
+#define SYSCFG_BASEADDR			0x40010000U		/*!< SYSCFG peripheral base address */
+#define COMP_BASEADDR			0x40010200U		/*!< COMP peripheral base address */
+#define EXTI_BASEADDR			0x40010400U		/*!< EXTI peripheral base address */
+#define FIREWALL_BASEADDR		0x40011C00U		/*!< FIREWALL peripheral base address */
+#define TIM1_BASEADDR			0x40012C00U		/*!< TIM1 peripheral base address */
+#define SPI1_BASEADDR			0x40013000U		/*!< SPI1 peripheral base address */
+#define USART1_BASEADDR			0x40013800U		/*!< USART1 peripheral base address */
+#define TIM15_BASEADDR			0x40014000U		/*!< TIM15 peripheral base address */
+#define TIM16_BASEADDR			0x40014400U		/*!< TIM16 peripheral base address */
+#define SAI1_BASEADDR			0x40015400U		/*!< SAI1 peripheral base address */
+
+/* base address of peripheral connected to AHB1 bus */
+
+#define DMA1_BASEADDR			0x40020000U		/*!< DMA1 peripheral base address */
+#define DMA2_BASEADDR			0x40020400U		/*!< DMA2 peripheral base address */
+#define RCC_BASEADDR			0x40021000U		/*!< RCC peripheral base address */
+#define FLASHREG_BASEADDR		0x40022000U		/*!< FLASHREG peripheral base address */
+#define CRC_BASEADDR			0x40023000U		/*!< CRC peripheral base address */
+#define TSC_BASEADDR			0x40024000U		/*!< TSC peripheral base address */
+
+/* base address of peripheral connected to AHB2 bus */
+
+#define GPIOA_BASEADDR			0x48000000U		/*!< GPIOA peripheral base address */
+#define GPIOB_BASEADDR			0x48000400U		/*!< GPIOB peripheral base address */
+#define GPIOC_BASEADDR			0x48000800U		/*!< GPIOC peripheral base address */
+#define GPIOH_BASEADDR			0x48001C00U		/*!< GPIOH peripheral base address */
+#define ADC_BASEADDR			0x50040000U		/*!< ADC peripheral base address */
+#define RNG_BASEADDR			0x50060800U		/*!< RNG peripheral base address */
+
+/******************************************************************************************************/
+/*                              PERIPHERAL REGISTER DEFINITION STRUCTURE                              */
+/******************************************************************************************************/
+// SOURCE - REFERENCE MANUAL
+
+/* RCC peripheral register definition structure */
+typedef struct{
+	__vo uint32_t CR; 					/*!< Clock control register; 												Address offset: 0x00 */
+	__vo uint32_t ICSCR; 				/*!< Internal clock sources calibration register;							Address offset: 0x04 */
+	__vo uint32_t CFGR;					/*!< Clock configuration register; 											Address offset: 0x08 */
+	__vo uint32_t PLLCFGR; 				/*!< PLL configuration register; 											Address offset: 0x0C */
+	__vo uint32_t PLLSAI1CFGR;			/*!< PLLSAI1 configuration register; 										Address offset: 0x10 */
+	uint32_t RESERVED0; 				/*!< Reserved 																				0x14 */
+	__vo uint32_t CIER; 				/*!< Clock interrupt enable register; 										Address offset: 0x18 */
+	__vo uint32_t CIFR; 				/*!< Clock interrupt flag register; 										Address offset: 0x1C */
+	__vo uint32_t CICR; 				/*!< Clock interrupt clear register; 										Address offset: 0x20 */
+	uint32_t RESERVED1; 				/*!< Reserved 																				0x24 */
+	__vo uint32_t AHB1RSTR; 			/*!< AHB1 peripheral reset register; 										Address offset: 0x28 */
+	__vo uint32_t AHB2RSTR; 			/*!< AHB2 peripheral reset register; 										Address offset: 0x2C */
+	__vo uint32_t AHB3RSTR; 			/*!< AHB3 peripheral reset register; 										Address offset: 0x30 */
+	uint32_t RESERVED2; 				/*!< Reserved 																				0x34 */
+	__vo uint32_t APB1RSTR1; 			/*!< APB1 peripheral reset register 1; 										Address offset: 0x38 */
+	__vo uint32_t APB1RSTR2; 			/*!< APB1 peripheral reset register 2; 										Address offset: 0x3C */
+	__vo uint32_t APB2RSTR; 			/*!< APB2 peripheral reset register; 										Address offset: 0x40 */
+	uint32_t RESERVED3; 				/*!< Reserved 																				0x44 */
+	__vo uint32_t AHB1ENR; 				/*!< AHB1 peripheral clock enable register; 								Address offset: 0x48 */
+	__vo uint32_t AHB2ENR; 				/*!< AHB2 peripheral clock enable register; 								Address offset: 0x4C */
+	__vo uint32_t AHB3ENR; 				/*!< AHB3 peripheral clock enable register; 								Address offset: 0x50 */
+	uint32_t RESERVED4; 				/*!< Reserved 																				0x54 */
+	__vo uint32_t APB1ENR1; 			/*!< APB1 peripheral clock enable register 1; 								Address offset: 0x58 */
+	__vo uint32_t APB1ENR2; 			/*!< APB1 peripheral clock enable register 2; 								Address offset: 0x5C */
+	__vo uint32_t APB2ENR; 				/*!< APB2 peripheral clock enable register; 								Address offset: 0x60 */
+	uint32_t RESERVED5; 				/*!< Reserved 																				0x64 */
+	__vo uint32_t AHB1SMENR; 			/*!< AHB1 peripheral clocks enable in Sleep and Stop modes register; 		Address offset: 0x68 */
+	__vo uint32_t AHB2SMENR; 			/*!< AHB2 peripheral clocks enable in Sleep and Stop modes register; 		Address offset: 0x6C */
+	__vo uint32_t AHB3SMENR; 			/*!< AHB3 peripheral clocks enable in Sleep and Stop modes register; 		Address offset: 0x70 */
+	uint32_t RESERVED6; 				/*!< Reserved 																				0x74 */
+	__vo uint32_t APB1SMENR1; 			/*!< APB1 peripheral clocks enable in Sleep and Stop modes register 1;		Address offset: 0x78 */
+	__vo uint32_t APB1SMENR2; 			/*!< APB1 peripheral clocks enable in Sleep and Stop modes register 2; 		Address offset: 0x7C */
+	__vo uint32_t APB2SMENR; 			/*!< APB2 peripheral clocks enable in Sleep and Stop modes register; 		Address offset: 0x80 */
+	uint32_t RESERVED7; 				/*!< Reserved 																				0x84 */
+	__vo uint32_t CCIPR; 				/*!< Peripherals independent clock configuration register; 					Address offset: 0x88 */
+	uint32_t RESERVED8; 				/*!< Reserved 																				0x8C */
+	__vo uint32_t BDCR; 				/*!< Backup domain control register; 										Address offset: 0x90 */
+	__vo uint32_t CSR; 					/*!< Control/status register; 												Address offset: 0x94 */
+	__vo uint32_t CRRCR; 				/*!< Clock recovery RC register; 											Address offset: 0x98 */
+	__vo uint32_t CCIPR2; 				/*!< Peripherals independent clock configuration register; 					Address offset: 0x9C */
+}RCC_RegDef_t;
+
+/* GPIOx peripheral register definition structure */
+typedef struct{
+	__vo uint32_t MODER;				/*!< GPIO port mode register; 												Address offset: 0x00 */
+	__vo uint32_t OTYPER;				/*!< GPIO port output type register, 										Address offset: 0x04 */
+	__vo uint32_t OSPEEDR;				/*!< GPIO port output speed register, 										Address offset: 0x08 */
+	__vo uint32_t PUPDR;				/*!< GPIO port pull-up/pull-down register, 									Address offset: 0x0C */
+	__vo uint32_t IDR;					/*!< GPIO port input data register, 										Address offset: 0x10 */
+	__vo uint32_t ODR;					/*!< GPIO port output data register, 										Address offset: 0x14 */
+	__vo uint32_t BSRR;					/*!< GPIO port bit set/reset register, 										Address offset: 0x18 */
+	__vo uint32_t LCKR;					/*!< GPIO port configuration lock register, 								Address offset: 0x1C */
+	__vo uint32_t AFR[2];				/*!< GPIO alternate function low register, 									Address offset: 0x20 */
+										/*!< GPIO alternate function high register, 								Address offset: 0x24 */
+	__vo uint32_t BRR;					/*!< GPIO port bit reset register, 											Address offset: 0x28 */
+}GPIO_RegDef_t;
+
+/* SYSCFG peripheral register definition structure */
+typedef struct{
+	__vo uint32_t SYSCFG_MEMRMP;		/*!< SYSCFG memory remap register; 											Address offset: 0x00 */
+	__vo uint32_t SYSCFG_CFGR1;			/*!< SYSCFG configuration register 1; 										Address offset: 0x04 */
+	__vo uint32_t SYSCFG_EXTICR[4];		/*!< SYSCFG external interrupt configuration register 1; 					Address offset: 0x08 */
+										/*!< SYSCFG external interrupt configuration register 2; 					Address offset: 0x0C */
+										/*!< SYSCFG external interrupt configuration register 3; 					Address offset: 0x10 */
+										/*!< SYSCFG external interrupt configuration register 4; 					Address offset: 0x14 */
+	__vo uint32_t SYSCFG_SCSR;			/*!< SYSCFG SRAM2 control and status register; 								Address offset: 0x18 */
+	__vo uint32_t SYSCFG_CFGR2;			/*!< SYSCFG configuration register 2; 										Address offset: 0x1C */
+	__vo uint32_t SYSCFG_SWPR;			/*!< SYSCFG SRAM2 write protection register; 								Address offset: 0x20 */
+	__vo uint32_t SYSCFG_SKR;			/*!< SYSCFG SRAM2 key register; 											Address offset: 0x24 */
+}SYSCFG_RegDef_t;
+
+/* EXTI peripheral register definition structure */
+typedef struct{
+	__vo uint32_t EXTI_IMR1; 			/*!< Interrupt mask register 1; 											Address offset: 0x00 */
+	__vo uint32_t EXTI_EMR1; 			/*!< Event mask register 1; 												Address offset: 0x04 */
+	__vo uint32_t EXTI_RTSR1; 			/*!< Rising trigger selection register 1; 									Address offset: 0x08 */
+	__vo uint32_t EXTI_FTSR1; 			/*!< Falling trigger selection register 1; 									Address offset: 0x0C */
+	__vo uint32_t EXTI_SWIER1; 			/*!< Software interrupt event register 1; 									Address offset: 0x10 */
+	__vo uint32_t EXTI_PR1; 			/*!< Pending register 1; 													Address offset: 0x14 */
+	__vo uint32_t RESERVED0;			/*!< Reserved																				0x18 */
+	__vo uint32_t RESERVED1;			/*!< Reserved																				0x1C */
+	__vo uint32_t EXTI_IMR2; 			/*!< Interrupt mask register 2; 											Address offset: 0x20 */
+	__vo uint32_t EXTI_EMR2; 			/*!< Event mask register 2; 												Address offset: 0x24 */
+	__vo uint32_t EXTI_RTSR2; 			/*!< Rising trigger selection register 2; 									Address offset: 0x28 */
+	__vo uint32_t EXTI_FTSR2; 			/*!< Falling trigger selection register 2; 									Address offset: 0x2C */
+	__vo uint32_t EXTI_SWIER2; 			/*!< Software interrupt event register 2; 									Address offset: 0x30 */
+	__vo uint32_t EXTI_PR2; 			/*!< Pending register 2; 													Address offset: 0x34 */
+}EXTI_RegDef_t;
+
+/***********************************************************************************/
+/*                              PERIPHERAL DEFINITION                              */
+/***********************************************************************************/
+
+/* peripheral definitions : peripheral base address type-casted to xxxx_RegDef_t */
+
+#define RCC				((RCC_RegDef_t *)RCC_BASEADDR)				/*!< RCC base address type-casted to RCC_RegDef_t */
+#define GPIOA			((GPIO_RegDef_t *)GPIOA_BASEADDR)			/*!< GPIOA base address type-casted to GPIO_RegDef_t */
+#define GPIOB			((GPIO_RegDef_t *)GPIOB_BASEADDR)			/*!< GPIOB base address type-casted to GPIO_RegDef_t */
+#define GPIOC			((GPIO_RegDef_t *)GPIOC_BASEADDR)			/*!< GPIOC base address type-casted to GPIO_RegDef_t */
+#define GPIOH			((GPIO_RegDef_t *)GPIOH_BASEADDR)			/*!< GPIOH base address type-casted to GPIO_RegDef_t */
+#define SYSCFG			((SYSCFG_RegDef_t *)SYSCFG_BASEADDR)		/*!< SYSCFG base address type-casted to SYSCFG_RegDef_t */
+#define EXTI			((EXTI_RegDef_t *) EXTI_BASEADDR)			/*!< EXTI base address type-casted to EXTI_RegDef_t */
+
+/*********************************************************************************/
+/*                              CLOCK ENABLE MACROS                              */
+/*********************************************************************************/
+
+/* clock enable macros for GPIOx peripherals */
+
+#define GPIOA_PCLK_EN()			(RCC->AHB2ENR |= (1 << 0))			/*!< GPIOA Peripheral Clock ENABLE */
+#define GPIOB_PCLK_EN()			(RCC->AHB2ENR |= (1 << 1))			/*!< GPIOB Peripheral Clock ENABLE */
+#define GPIOC_PCLK_EN()			(RCC->AHB2ENR |= (1 << 2))			/*!< GPIOC Peripheral Clock ENABLE */
+#define GPIOH_PCLK_EN()			(RCC->AHB2ENR |= (1 << 7))			/*!< GPIOH Peripheral Clock ENABLE */
+
+/* clock enable macro for SYSCFG peripheral */
+
+#define SYSCFG_PCLK_EN()		(RCC->APB2ENR |= (1 << 0))			/*!< SYSCFG Peripheral Clock ENABLE */
+
+/* clock enable macro for I2Cx peripherals */
+
+#define I2C1_PCLK_EN()			(RCC->APB1ENR1 |= (1 << 21))		/*!< I2C1 Peripheral Clock ENABLE */
+#define I2C3_PCLK_EN()			(RCC->APB1ENR1 |= (1 << 23))		/*!< I2C3 Peripheral Clock ENABLE */
+
+/* clock enable macro for USARTx peripherals */
+
+#define USART1_PCLK_EN()		(RCC->APB2ENR |= (1 << 14))			/*!< USART1 Peripheral Clock ENABLE */
+#define USART2_PCLK_EN()		(RCC->APB1ENR1 |= (1 << 17))		/*!< USART2 Peripheral Clock ENABLE */
+
+/* clock enable macros for SPIx peripherals */
+
+#define SPI1_PCLK_EN()			(RCC->APB2ENR |= (1 << 12))			/*!< SPI1 Peripheral Clock ENABLE */
+#define SPI3_PCLK_EN()			(RCC->APB1ENR1 |= (1 << 15))		/*!< SPI3 Peripheral Clock ENABLE */
+
+/**********************************************************************************/
+/*                              CLOCK DISABLE MACROS                              */
+/**********************************************************************************/
+
+/* clock enable macros for GPIOx peripherals */
+
+#define GPIOA_PCLK_DI()			(RCC->AHB2ENR &= ~(1 << 0))			/*!< GPIOA Peripheral Clock DISABLE */
+#define GPIOB_PCLK_DI()			(RCC->AHB2ENR &= ~(1 << 1))			/*!< GPIOB Peripheral Clock DISABLE */
+#define GPIOC_PCLK_DI()			(RCC->AHB2ENR &= ~(1 << 2))			/*!< GPIOC Peripheral Clock DISABLE */
+#define GPIOH_PCLK_DI()			(RCC->AHB2ENR &= ~(1 << 7))			/*!< GPIOH Peripheral Clock DISABLE */
+
+/* clock enable macro for SYSCFG peripheral */
+
+#define SYSCFG_PCLK_DI()		(RCC->APB2ENR &= ~(1 << 0))			/*!< SYSCFG Peripheral Clock DISABLE */
+
+/* clock enable macro for USARTx peripherals */
+
+#define I2C1_PCLK_DI()			(RCC->APB1ENR1 &= ~(1 << 21))		/*!< I2C1 Peripheral Clock DISABLE */
+#define I2C3_PCLK_DI()			(RCC->APB1ENR1 &= ~(1 << 23))		/*!< I2C3 Peripheral Clock DISABLE */
+
+/* clock enable macro for USARTx peripherals */
+
+#define USART1_PCLK_DI()		(RCC->APB2ENR &= ~(1 << 14))		/*!< USART1 Peripheral Clock DISABLE */
+#define USART2_PCLK_DI()		(RCC->APB1ENR1 &= ~(1 << 17))		/*!< USART2 Peripheral Clock DISABLE */
+
+/* clock enable macros for SPIx peripherals */
+
+#define SPI1_PCLK_DI()			(RCC->APB2ENR &= ~(1 << 12))		/*!< SPI1 Peripheral Clock DISABLE */
+#define SPI3_PCLK_DI()			(RCC->APB1ENR1 &= ~(1 << 15))		/*!< SPI3 Peripheral Clock DISABLE */
+
+/*************************************************************************************/
+/*                              PERIPHERAL RESET MACROS                              */
+/*************************************************************************************/
+
+/* reset macros for GPIOx peripheral */
+
+#define GPIOA_PERI_RESET()		do{(RCC->AHB2RSTR |= (0b1 << 0)); (RCC->AHB2RSTR &= ~(0b1 << 0));} while(0);		/*!< GPIOA Peripheral Reset Function */
+#define GPIOB_PERI_RESET()		do{(RCC->AHB2RSTR |= (0b1 << 1)); (RCC->AHB2RSTR &= ~(0b1 << 1));} while(0);		/*!< GPIOB Peripheral Reset Function */
+#define GPIOC_PERI_RESET()		do{(RCC->AHB2RSTR |= (0b1 << 2)); (RCC->AHB2RSTR &= ~(0b1 << 2));} while(0);		/*!< GPIOC Peripheral Reset Function */
+#define GPIOH_PERI_RESET()		do{(RCC->AHB2RSTR |= (0b1 << 7)); (RCC->AHB2RSTR &= ~(0b1 << 7));} while(0);		/*!< GPIOH Peripheral Reset Function */
+#define SYSCFG_PERI_RESET()		do{(RCC->APB2RSTR |= (0b1 << 0)); (RCC->APB2RSTR &= ~(0b1 << 0));} while(0);		/*!< SYSCFG Peripheral Reset Function */
+
+/*****************************************************************************/
+/*                              FUNCTION MACROS                              */
+/*****************************************************************************/
+
+/************************************************************
+ * @MACRO 		- GPIO_BASEADDR_TO_CODE()
+ * @brief 		- returns code for input GPIOx peripheral
+ *
+ * @param[in] 	- GPIOx base address type-casted to GPIOx_RegDef_t
+ * @return 		- code
+ *
+ * @note 		- source -> reference manual (SYSCFG external interrupt configuration register 1)
+ */
+#define GPIO_BASEADDR_TO_CODE(x)		((x == GPIOA) ? 0b000 : \
+										 (x == GPIOB) ? 0b001 : \
+										 (x == GPIOC) ? 0b010 : \
+										 (x == GPIOH) ? 0b111 : 0)
+
+/*****************************************************************************/
+/*                              INCLUDE DRIVERS                              */
+/*****************************************************************************/
+
+#include "cortex-m4.h"
+#include "nucleo-l432kc_gpio_driver.h"
+
+#endif /* INC_NUCLEO_L432KC_H_ */

@@ -263,6 +263,17 @@ typedef struct{
 	__vo uint32_t EXTI_PR2; 			/*!< Pending register 2; 													Address offset: 0x34 */
 }EXTI_RegDef_t;
 
+/* SPI peripheral register definition structure */
+typedef struct{
+	__vo uint32_t SPIx_CR1;				/*!< SPI control register 1; 												Address offset: 0x00 */
+	__vo uint32_t SPIx_CR2;				/*!< SPI control register 2; 												Address offset: 0x04 */
+	__vo uint32_t SPIx_SR;				/*!< SPI status register ; 													Address offset: 0x08 */
+	__vo uint32_t SPIx_DR;				/*!< SPI data register; 													Address offset: 0x0C */
+	__vo uint32_t SPIx_CRCPR;			/*!< SPI CRC polynomial register; 											Address offset: 0x10 */
+	__vo uint32_t SPIx_RXCRCR;			/*!< SPI Rx CRC register; 													Address offset: 0x14 */
+	__vo uint32_t SPIx_TXCRCR;			/*!< SPI Tx CRC register; 													Address offset: 0x18 */
+}SPI_RegDef_t;
+
 /***********************************************************************************/
 /*                              PERIPHERAL DEFINITION                              */
 /***********************************************************************************/
@@ -276,6 +287,8 @@ typedef struct{
 #define GPIOH			((GPIO_RegDef_t *)GPIOH_BASEADDR)			/*!< GPIOH base address type-casted to GPIO_RegDef_t */
 #define SYSCFG			((SYSCFG_RegDef_t *)SYSCFG_BASEADDR)		/*!< SYSCFG base address type-casted to SYSCFG_RegDef_t */
 #define EXTI			((EXTI_RegDef_t *) EXTI_BASEADDR)			/*!< EXTI base address type-casted to EXTI_RegDef_t */
+#define SPI1			((SPI_RegDef_t *)SPI1_BASEADDR)				/*!< SPI1 base address type-casted to SPI_RegDef_t */
+#define SPI3			((SPI_RegDef_t *)SPI3_BASEADDR)				/*!< SPI3 base address type-casted to SPI_RegDef_t */
 
 /*********************************************************************************/
 /*                              CLOCK ENABLE MACROS                              */
@@ -348,6 +361,8 @@ typedef struct{
 #define GPIOC_PERI_RESET()		do{(RCC->AHB2RSTR |= (0b1 << 2)); (RCC->AHB2RSTR &= ~(0b1 << 2));} while(0);		/*!< GPIOC Peripheral Reset Function */
 #define GPIOH_PERI_RESET()		do{(RCC->AHB2RSTR |= (0b1 << 7)); (RCC->AHB2RSTR &= ~(0b1 << 7));} while(0);		/*!< GPIOH Peripheral Reset Function */
 #define SYSCFG_PERI_RESET()		do{(RCC->APB2RSTR |= (0b1 << 0)); (RCC->APB2RSTR &= ~(0b1 << 0));} while(0);		/*!< SYSCFG Peripheral Reset Function */
+#define SPI1_PERI_RESET()		do{(RCC->APB2RSTR |= (0b1 << 12)); (RCC->APB2RSTR &= ~(0b1 << 12));}while(0);		/*!< SPI1 Peripheral Reset Function */
+#define SPI3_PERI_RESET()		do{(RCC->APB1RSTR1 |= (0b1 << 15)); (RCC->APB1RSTR1 &= ~(0b1 << 15));}while(0);		/*!< SPI3 Peripheral Reset Function */
 
 /*****************************************************************************/
 /*                              FUNCTION MACROS                              */
@@ -367,11 +382,58 @@ typedef struct{
 										 (x == GPIOC) ? 0b010 : \
 										 (x == GPIOH) ? 0b111 : 0)
 
+/******************************************************************************************
+ *                             Bit position definitions of SPI peripheral
+ ******************************************************************************************/
+
+/*
+ * Bit position definitions SPI_CR1
+ */
+#define SPI_CR1_CPHA     				0
+#define SPI_CR1_CPOL      				1
+#define SPI_CR1_MSTR     				2
+#define SPI_CR1_BR   					3
+#define SPI_CR1_SPE     				6
+#define SPI_CR1_LSBFIRST   			 	7
+#define SPI_CR1_SSI     				8
+#define SPI_CR1_SSM      				9
+#define SPI_CR1_RXONLY      		 	10
+#define SPI_CR1_CRCL     			 	11
+#define SPI_CR1_CRCNEXT   			 	12
+#define SPI_CR1_CRCEN   			 	13
+#define SPI_CR1_BIDIOE     			 	14
+#define SPI_CR1_BIDIMODE      			15
+
+/*
+ * Bit position definitions SPI_CR2
+ */
+#define SPI_CR2_RXDMAEN		 			0
+#define SPI_CR2_TXDMAEN				 	1
+#define SPI_CR2_SSOE				 	2
+#define SPI_CR2_FRF						4
+#define SPI_CR2_ERRIE					5
+#define SPI_CR2_RXNEIE				 	6
+#define SPI_CR2_TXEIE					7
+#define SPI_CR2_DS						8
+
+
+/*
+ * Bit position definitions SPI_SR
+ */
+#define SPI_SR_RXNE						0
+#define SPI_SR_TXE				 		1
+#define SPI_SR_CRCERR				 	4
+#define SPI_SR_MODF					 	5
+#define SPI_SR_OVR					 	6
+#define SPI_SR_BSY					 	7
+#define SPI_SR_FRE					 	8
+
 /*****************************************************************************/
 /*                              INCLUDE DRIVERS                              */
 /*****************************************************************************/
 
 #include "cortex-m4.h"
 #include "nucleo-l432kc_gpio_driver.h"
+#include "nucleo-l432kc_spi_driver.h"
 
 #endif /* INC_NUCLEO_L432KC_H_ */

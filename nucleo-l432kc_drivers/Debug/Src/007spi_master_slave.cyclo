@@ -1,0 +1,4 @@
+../Src/007spi_master_slave.c:28:6:delay	2
+../Src/007spi_master_slave.c:32:6:SPI_GPIOConfig	1
+../Src/007spi_master_slave.c:92:6:SPI_Config	1
+../Src/007spi_master_slave.c:129:5:main	3

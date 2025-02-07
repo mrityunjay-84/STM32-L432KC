@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;nucleo-l432kc_drivers/drivers/Src/nucleo-l432kc_spi_driver.h&apos; to &apos;nucleo-l432kc_spi_driver.c&apos;" description="Rename resource &apos;nucleo-l432kc_spi_driver.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="drivers/Src/nucleo-l432kc_spi_driver.h" name="nucleo-l432kc_spi_driver.c" stamp="1738767983048" updateReferences="true"/>
+</session>

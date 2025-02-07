@@ -34,7 +34,7 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDis){
 		else if (pGPIOx == GPIOC){
 			GPIOA_PCLK_EN();
 		}
-		else{
+		else if (pGPIOx == GPIOH){
 			GPIOH_PCLK_EN();
 		}
 	}
@@ -48,7 +48,7 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDis){
 		else if (pGPIOx == GPIOC){
 			GPIOA_PCLK_DI();
 		}
-		else{
+		else if (pGPIOx == GPIOH){
 			GPIOH_PCLK_DI();
 		}
 	}
@@ -159,7 +159,7 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx){
 	else if (pGPIOx == GPIOC){
 		GPIOA_PERI_RESET();
 	}
-	else{
+	else if (pGPIOx == GPIOH){
 		GPIOH_PERI_RESET();
 	}
 }

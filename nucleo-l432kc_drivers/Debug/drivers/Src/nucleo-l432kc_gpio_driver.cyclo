@@ -1,6 +1,6 @@
-../drivers/Src/nucleo-l432kc_gpio_driver.c:26:6:GPIO_PeriClockControl	8
+../drivers/Src/nucleo-l432kc_gpio_driver.c:26:6:GPIO_PeriClockControl	10
 ../drivers/Src/nucleo-l432kc_gpio_driver.c:68:6:GPIO_Init	9
-../drivers/Src/nucleo-l432kc_gpio_driver.c:152:6:GPIO_DeInit	4
+../drivers/Src/nucleo-l432kc_gpio_driver.c:152:6:GPIO_DeInit	5
 ../drivers/Src/nucleo-l432kc_gpio_driver.c:179:6:GPIO_ReadFromInputPin	1
 ../drivers/Src/nucleo-l432kc_gpio_driver.c:195:10:GPIO_ReadFromInputPort	1
 ../drivers/Src/nucleo-l432kc_gpio_driver.c:212:6:GPIO_WriteToOutputPin	2

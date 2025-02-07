@@ -1,0 +1,13 @@
+/*
+ * nucleo-l432kc_spi_driver.h
+ *
+ *  Created on: Feb 5, 2025
+ *      Author: mrityunjay
+ */
+
+#ifndef INC_NUCLEO_L432KC_SPI_DRIVER_H_
+#define INC_NUCLEO_L432KC_SPI_DRIVER_H_
+
+
+
+#endif /* INC_NUCLEO_L432KC_SPI_DRIVER_H_ */

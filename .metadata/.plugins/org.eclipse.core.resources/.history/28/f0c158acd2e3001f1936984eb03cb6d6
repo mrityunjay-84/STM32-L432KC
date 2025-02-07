@@ -1,0 +1,69 @@
+/*
+ * nucleo-l432kc_spi_driver.h
+ *
+ *  Created on: Feb 5, 2025
+ *      Author: mrityunjay
+ */
+
+#ifndef INC_NUCLEO_L432KC_SPI_DRIVER_H_
+#define INC_NUCLEO_L432KC_SPI_DRIVER_H_
+
+#include "nucleo-l432kc.h"
+
+/**************************************************************************************/
+/*                              SPI STRUCTURE DEFINITION                              */
+/**************************************************************************************/
+
+/* structure for a SPI pin configuration settings */
+typedef struct{
+	uint8_t SPI_DeviceMode;					/*!< possible values from @SPI_DeviceMode */
+	uint8_t SPI_BusConfig;					/*!< possible values from @SPI_BusConfig */
+	uint8_t SPI_DFF;						/*!< possible values from @SPI_DFF */
+	uint8_t SPI_CPHA;						/*!< possible values from @SPI_CPHA */
+	uint8_t SPI_CPOL;						/*!< possible values from @SPI_CPOL */
+	uint8_t SPI_SSM;						/*!< possible values from @SPI_SSM */
+	uint8_t SPI_Speed;						/*!< possible values from @SPI_Speed */
+}SPI_PinConfig_t;
+
+
+/* handle structure for a SPI pin */
+typedef struct{
+	SPI_RegDef_t *pSPIx;					/*!< base address of the SPI port type-casted to SPI_RegDef_t */
+	SPI_PinConfig_t SPI_PinConfig;			/*!< SPI pin configuration settings */
+}SPI_Handle_t;
+
+/*******************************************************************************************/
+/*                              GPIO PIN CONFIGURATION MACROS                              */
+/*******************************************************************************************/
+
+/* MACROS for SPI Device Mode
+ * @SPI_DeviceMode
+ */
+
+/* MACROS for SPI Bus Configuration
+ * @SPI_BusConfig
+ */
+
+/* MACROS for SPI Data Frame Format
+ * @SPI_DFF
+ */
+
+/* MACROS for SPI CPHA bit
+ * @SPI_CPHA
+ */
+
+/* MACROS for SPI CPOL bit
+ * @SPI_CPOL
+ */
+
+/* MACROS for SPI SSM bit
+ * @SPI_SSM
+ */
+
+/* MACROS for SPI Speed
+ * @SPI_Speed
+ */
+
+
+
+#endif /* INC_NUCLEO_L432KC_SPI_DRIVER_H_ */

@@ -1,0 +1,115 @@
+/*
+ * nucleo-l432kc_spi_driver.h
+ *
+ *  Created on: Feb 5, 2025
+ *      Author: mrityunjay
+ */
+
+#ifndef INC_NUCLEO_L432KC_SPI_DRIVER_H_
+#define INC_NUCLEO_L432KC_SPI_DRIVER_H_
+
+#include "nucleo-l432kc.h"
+
+/**************************************************************************************/
+/*                              SPI STRUCTURE DEFINITION                              */
+/**************************************************************************************/
+
+/* structure for a SPI pin configuration settings */
+typedef struct{
+	uint8_t SPI_DeviceMode;					/*!< possible values from @SPI_DeviceMode */
+	uint8_t SPI_BusConfig;					/*!< possible values from @SPI_BusConfig */
+	uint8_t SPI_DS;							/*!< possible values from @SPI_DS */
+	uint8_t SPI_CPHA;						/*!< possible values from @SPI_CPHA */
+	uint8_t SPI_CPOL;						/*!< possible values from @SPI_CPOL */
+	uint8_t SPI_SSM;						/*!< possible values from @SPI_SSM */
+	uint8_t SPI_Speed;						/*!< possible values from @SPI_Speed */
+}SPI_PinConfig_t;
+
+
+/* handle structure for a SPI pin */
+typedef struct{
+	SPI_RegDef_t *pSPIx;					/*!< base address of the SPI port type-casted to SPI_RegDef_t */
+	SPI_PinConfig_t SPI_PinConfig;			/*!< SPI pin configuration settings */
+}SPI_Handle_t;
+
+/******************************************************************************************/
+/*                              SPI PIN CONFIGURATION MACROS                              */
+/******************************************************************************************/
+
+/* MACROS for SPI Device Mode; refer MSTR bit
+ * @SPI_DeviceMode
+ */
+#define SPI_DEVICE_MODE_MASTER		1		/*!< MSTR bit = 1: Master configuration */
+#define SPI_DEVICE_MODE_SLAVE		0		/*!< MSTR bit = 0: Slave configuration */
+
+/* MACROS for SPI Bus Configuration
+ * @SPI_BusConfig
+ */
+#define SPI_BUS_CONFIG_FULL_DUPLX	0		/*!< Full Duplex configuration */
+#define SPI_BUS_CONFIG_HALF_DUPLX	1		/*!< Half Duplex configuration */
+#define SPI_BUS_CONFIG_SMPLX_RX		2		/*!< Simplex Receive ONLY configuration */
+#define SPI_BUS_CONFIG_SMPLX_TX		3		/*!< Simplex Transmit ONLY configuration */
+
+/* MACROS for SPI Data Size; refer DS bits
+ * @SPI_DS
+ */
+#define SPI_DS_4_BIT			0b0011		/*!< Data Frame Size of 4 bits */
+#define SPI_DS_5_BIT			0b0100		/*!< Data Frame Size of 5 bits */
+#define SPI_DS_6_BIT			0b0101		/*!< Data Frame Size of 6 bits */
+#define SPI_DS_7_BIT			0b0110		/*!< Data Frame Size of 7 bits */
+#define SPI_DS_8_BIT			0b0111		/*!< Data Frame Size of 8 bits */
+#define SPI_DS_9_BIT			0b1000		/*!< Data Frame Size of 9 bits */
+#define SPI_DS_10_BIT			0b1001		/*!< Data Frame Size of 10 bits */
+#define SPI_DS_11_BIT			0b1010		/*!< Data Frame Size of 11 bits */
+#define SPI_DS_12_BIT			0b1011		/*!< Data Frame Size of 12 bits */
+#define SPI_DS_13_BIT			0b1100		/*!< Data Frame Size of 13 bits */
+#define SPI_DS_14_BIT			0b1101		/*!< Data Frame Size of 14 bits */
+#define SPI_DS_15_BIT			0b1110		/*!< Data Frame Size of 15 bits */
+#define SPI_DS_16_BIT			0b1111		/*!< Data Frame Size of 16 bits */
+
+/* MACROS for SPI Clock Phase, refer CPHA bit
+ * @SPI_CPHA
+ */
+#define SPI_CPHA_LOW			0 			/*!< 0: The first clock transition is the first data capture edge */
+#define SPI_CPHA_HIGH			1 			/*!< 1: The second clock transition is the first data capture edge */
+
+/* MACROS for SPI Clock Polarity, refer CPOL bit
+ * @SPI_CPOL
+ */
+#define SPI_CPOL_LOW			0			/*!< 0: CK to 0 when idle */
+#define SPI_CPOL_HIGH			1			/*!< 1: CK to 1 when idle */
+
+/* MACROS for SPI SSM bit
+ * @SPI_SSM
+ */
+
+/* MACROS for SPI Speed
+ * @SPI_Speed
+ */
+
+/**********************************************************************/
+/*                              SPI APIS                              */
+/**********************************************************************/
+
+/* SPI Peripheral Clock Setup */
+
+void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDis);
+
+/* Initialization and DeInitialization */
+
+void SPI_Init(SPI_Handle_t *pSPI_Handle);
+void SPI_DeInit(SPI_RegDef_t *pSPIx);
+
+/* Data Read and Write */
+
+void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint8_t length);
+void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint8_t length);
+
+/* IRQ Configuration and IRS Handling */
+
+void SPI_IRQInterruptConfig(uint8_t IRQNumber, bool EnorDi);
+void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority);
+void SPI_IRQHandling(SPI_Handle_t *pSPI_Handle);
+
+
+#endif /* INC_NUCLEO_L432KC_SPI_DRIVER_H_ */
